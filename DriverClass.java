@@ -7,7 +7,7 @@ import java.io.IOException;
 
 class DriverClass{
 
-	private void driverMethod(File rootPath, PrintWriter mergeTracker, int groupingCode, int subFolderCode) throws IOException{
+	public void driverMethod(File rootPath, int groupingCode, int subFolderCode) throws IOException{
 
 		//Do subFolder action first always
 		if(subFolderCode != 2){
@@ -17,55 +17,25 @@ class DriverClass{
 			if( subFolderCode == 0 ){ //Merge files to root folder and organize
 
 				//Pulls all files to root Folder 
-				sfa.mergeSubFolder( rootPath, rootPath, mergeTracker, true); //true to indicate DepthOne
+				sfa.mergeSubFolder( rootPath, rootPath, true); //true to indicate DepthOne
 
 				//call Grouping Handler to group files as selected
 				FileGrouper fg = new FileGrouper();
-				fg.groupingHandler(rootPath, mergeTracker, groupingCode); 
+				fg.groupingHandler(rootPath, groupingCode); 
 
 			}
 			else if( subFolderCode == 1 ){ //Organize files in their respective folders with selected grouping type
 
-				sfa.organizeWithOutMerge( rootPath, rootPath, mergeTracker, groupingCode );
+				sfa.organizeWithOutMerge( rootPath, rootPath, groupingCode );
 			}
 		}
 		else{ //Grouping type
 
 			FileGrouper fg = new FileGrouper();
-			fg.groupingHandler(rootPath, mergeTracker, groupingCode); 
+			fg.groupingHandler(rootPath, groupingCode); 
 		}
 
 
 	}
-
-
-
-	public static void main(String[] args) { //Getting Input
-		
-		int groupingCode = Integer.parseInt(args[0]); //Grouping Code
-		int subFolderCode = Integer.parseInt(args[1]);// default subfolder code = 2 no action option as default
-		File rootPath = new File(args[2]); //path of the directory to be organized
-		File mergeLogger = new File(args[3]); // path of the file to log all the file movements for revert
-		PrintWriter mergeTracker = null;
-		DriverClass dc = new DriverClass();
-
-		try{
-			FileWriter fw = new FileWriter(mergeLogger, true);
-			BufferedWriter bw = new BufferedWriter(fw);
-			mergeTracker = new PrintWriter(bw);
-
-			dc.driverMethod(rootPath, mergeTracker, groupingCode, subFolderCode);
-
-		}
-		catch(IOException ioe){
-			System.out.println("IOException occurred");
-			ioe.printStackTrace();
-		}
-		finally{
-			//Closing Open Resources
-			if(mergeTracker != null)
-				mergeTracker.close();
-		}
-
-	}
+	
 }
