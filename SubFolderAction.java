@@ -17,7 +17,7 @@ class SubFolderAction {
 		=> Then it groups files as user seleted file grouping type.
 		=> Recursion works in Depth First manner.
 	*/
-	public void mergeSubFolder(File rootPath, File  currentDirectory,  PrintWriter mergeLogger, Boolean isDepthOne ) throws IOException {
+	public void mergeSubFolder(File rootPath, File  currentDirectory, Boolean isDepthOne ) throws IOException {
 
 		
 		File[] allEntries = currentDirectory.listFiles();
@@ -30,7 +30,7 @@ class SubFolderAction {
 			if(file.isDirectory()){
 
 				File vistingDir = file;
-				mergeSubFolder( rootPath, vistingDir, mergeLogger, false);
+				mergeSubFolder( rootPath, vistingDir, false);
 				vistingDir.delete();
 
 			}
@@ -43,7 +43,6 @@ class SubFolderAction {
 
 				
 				Files.move( file.toPath(), target.toPath() ); //moves file from current folder to top user specfied directory
-				mergeLogger.println(file); //to track file movements
 
 			}
 		}
@@ -57,18 +56,18 @@ class SubFolderAction {
 	/*
 		Recurses till last leaf folder and then organizes each directory in a bottom up backtracking manner.
 	*/
-	public void organizeWithOutMerge(File rootPath, File  currentDirectory,  PrintWriter mergeLogger, int groupingCode) throws IOException{
+	public void organizeWithOutMerge(File rootPath, File  currentDirectory, int groupingCode) throws IOException{
 
 			File[] allEntries =  currentDirectory.listFiles();
 
 			for(File tempFile : allEntries){ //for every subdirectory in current path self recurses to organize them 
 				if(tempFile.isDirectory()){
-					organizeWithOutMerge(rootPath, tempFile, mergeLogger, groupingCode);
+					organizeWithOutMerge(rootPath, tempFile, groupingCode);
 				}
 			}
 			
 			FileGrouper fg = new FileGrouper(); //groups each file accord to user given input
-			fg.groupingHandler(currentDirectory, mergeLogger, groupingCode);
+			fg.groupingHandler(currentDirectory, groupingCode);
 
 	}
 

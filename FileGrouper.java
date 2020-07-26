@@ -19,22 +19,22 @@ public class FileGrouper{
 
 
 	// => This is a driver function for all the functions in this class.
-	public void groupingHandler(File currentPath, PrintWriter mergeTracker, int groupingCode) throws IOException{
+	public void groupingHandler(File currentPath, int groupingCode) throws IOException{
 
 			System.out.println("Grouping Code : "+ groupingCode );
 
 			if(groupingCode == 0 ){ //Group only by File Category
-				groupByFileCategory( currentPath, mergeTracker, false); //false indicates not to group by type
+				groupByFileCategory( currentPath, false); //false indicates not to group by type
 			}
-			else if(groupingCode ==1 ){ //Group by File Category anf File Type
-				groupByFileCategory( currentPath, mergeTracker, true); //true indicates to group by type as well
+			else if(groupingCode ==1 ){ //Group by File Category and File Type
+				groupByFileCategory( currentPath, true); //true indicates to group by type as well
 			}
-			else if(groupingCode == 2){
-				groupByFileType( currentPath, mergeTracker);	
+			else if(groupingCode == 2){ //Group only by File Type
+				groupByFileType( currentPath);
 			}
 	}
 
-	private void groupByFileType(File currentPath, PrintWriter mergeTracker) throws IOException {
+	private void groupByFileType(File currentPath) throws IOException {
 
 		System.out.println("Group By File Type Method Invoked" );
 		//list only files
@@ -84,7 +84,7 @@ public class FileGrouper{
 
 	}	
 
-	private void groupByFileCategory(File currentPath, PrintWriter mergeTracker, boolean subFolderAction) throws IOException {
+	private void groupByFileCategory(File currentPath, boolean subFolderAction) throws IOException {
 
 		File[] allEntries = currentPath.listFiles();
 
@@ -177,7 +177,7 @@ public class FileGrouper{
 			commonDir.add(currentPath);
 			for(File tempDir : commonDir){
 				System.out.println("---------------"+tempDir+"----------------------");
-				groupingHandler( tempDir, mergeTracker, 2); //2 indicates grouping code : 2
+				groupingHandler( tempDir, 2); //2 indicates grouping code : 2
 			}
 		}
 
