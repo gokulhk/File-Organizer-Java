@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" maxHeight="600.0" maxWidth="800.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" spacing="10.0" stylesheets="@MainPage.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIHandler">
+   <children>
+      <AnchorPane prefHeight="499.0" prefWidth="600.0">
+         <children>
+            <Label layoutX="26.0" layoutY="57.0" text="Enter Directory Path">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="381.0" layoutY="58.0" text="or" />
+            <Button fx:id="chooseBtn" layoutX="407.0" layoutY="53.0" mnemonicParsing="false" onAction="#chooseDirectoryAction" text="Choose Directory" />
+            <TextField fx:id="dirField" layoutX="194.0" layoutY="53.0" />
+            <Label layoutX="53.0" layoutY="108.0" text="Grouping Type">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="51.0" layoutY="228.0" text="SubFolder Action">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <RadioButton fx:id="gtrb1" layoutX="87.0" layoutY="131.0" mnemonicParsing="false" selected="true" text="File Category">
+               <toggleGroup>
+                  <ToggleGroup fx:id="GroupingType" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="gtrb2" layoutX="87.0" layoutY="160.0" mnemonicParsing="false" text="File Category &amp; File Type Subfolders" toggleGroup="$GroupingType" />
+            <RadioButton fx:id="gtrb3" layoutX="87.0" layoutY="191.0" mnemonicParsing="false" text="FileType" toggleGroup="$GroupingType" />
+            <RadioButton fx:id="sfrb1" layoutX="87.0" layoutY="261.0" mnemonicParsing="false" text="Merge files to root and Organise">
+               <toggleGroup>
+                  <ToggleGroup fx:id="SubFolderAction" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="sfrb2" layoutX="87.0" layoutY="289.0" mnemonicParsing="false" text="Organise files in their respective subfolder" toggleGroup="$SubFolderAction" />
+            <RadioButton fx:id="sfrb3" layoutX="87.0" layoutY="317.0" mnemonicParsing="false" selected="true" text="No Action" toggleGroup="$SubFolderAction" />
+            <Button fx:id="orgBtn" layoutX="180.0" layoutY="427.0" mnemonicParsing="false" onAction="#organiseClicked" text="Organise" />
+            <Button fx:id="advBtn" layoutX="407.0" layoutY="376.0" mnemonicParsing="false" text="Advanced" />
+            <Label layoutX="75.0" layoutY="376.0" prefHeight="26.0" prefWidth="326.0" text="Here &quot;root&quot; implies the directory path entered." />
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>
