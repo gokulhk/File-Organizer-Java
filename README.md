@@ -1,14 +1,12 @@
 ## File Organizer
 
-<hr />
-
 ### Overview:
 
 - Helps organize folders by rearranging files.
 - It can rearrange files by
-    - File Type `(.txt, .png)`.
-    - File Category (`Images(.png, .jpeg..), Documents(.docx, .ppt,...)..`).
-- It can rearrange files recursively i.e. rearranges subfolders.
+    - File type `(.txt, .png)`.
+    - File category (`Images(.png, .jpeg..), Documents(.docx, .ppt,...)..`).
+- It can rearrange files recursively i.e. rearrange subfolders.
 
 ### Why:
 
@@ -17,7 +15,7 @@ I started this project in 2018 (\* *dinosaur noises* \*) back when I was using U
 I often found myself manually rearranging files in my `Downloads` folder. Back then Ubuntu's default file manager didn't have a
 way to arrange files by type `(.txt, .png)` or category `(Images(.png, .jpeg..), Documents(.docx, .ppt,...)..)`.
 <br><br>
-So, I created this. I created it in Python - you can find the repo in my profile.
+So, I created this. I created it in Python - you can find that repo in my profile.
 <br><br>
 Then I translated it to Java.
 
