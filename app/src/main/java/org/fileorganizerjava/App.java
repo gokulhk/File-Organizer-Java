@@ -6,6 +6,7 @@ public class App {
   }
 
   public static void main(String[] args) {
-    System.out.println(new App().getGreeting());
+    new DriverClass().start(args);
+    System.out.println("Application has been started.");
   }
 }

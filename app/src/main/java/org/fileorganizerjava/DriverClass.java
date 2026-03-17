@@ -39,7 +39,7 @@ class DriverClass {
     }
   }
 
-  public static void main(String[] args) { // Getting Input
+  public void start(String[] args) { // Getting Input
 
     int groupingCode = Integer.parseInt(args[0]); // Grouping Code
     int subFolderCode =
