@@ -6,7 +6,8 @@ public class App {
   }
 
   public static void main(String[] args) {
-    new DriverClass().start(args);
-    System.out.println("Application has been started.");
+    System.out.println("Application started.");
+    new DriverClass().showMenu();
+    System.out.println("Application terminated.");
   }
 }
