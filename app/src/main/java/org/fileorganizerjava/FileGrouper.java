@@ -1,3 +1,5 @@
+package org.fileorganizerjava;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.BufferedWriter;

@@ -1,3 +1,5 @@
+package org.fileorganizerjava;
+
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileWriter;

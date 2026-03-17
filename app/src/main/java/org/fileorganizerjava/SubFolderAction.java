@@ -1,3 +1,5 @@
+package org.fileorganizerjava;
+
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
