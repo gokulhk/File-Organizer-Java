@@ -8,6 +8,7 @@
 plugins {
     // supports for building a CLI application in Java.
     id 'application'
+    id 'java'
 }
 
 repositories {
@@ -34,7 +35,7 @@ jar {
 
 application {
     // Define the main class for the application.
-    mainClass = 'org.fileorganizer.App'
+    mainClass = 'org.fileorganizerjava.App'
 }
 
 tasks.named('test') {
