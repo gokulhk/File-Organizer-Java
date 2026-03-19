@@ -1,21 +1,24 @@
 plugins {
     id "file-organizer-java.java-conventions"
+    id 'org.openjfx.javafxplugin' version '0.1.0'
 }
 
 group = 'org.fileorganizergui'
 version = '1.0.0'
 
+javafx {
+    version = "21"
+    modules = ['javafx.controls', 'javafx.fxml']
+}
+
 dependencies {
     implementation project(':app')
-
-    implementation("org.openjfx:javafx-base:21.0.11-ea+2")
-    implementation("org.openjfx:javafx-controls:21.0.11-ea+2")
 }
 
 
 jar {
     manifest {
-        attributes 'Main-Class': 'org.fileorganizergui.Main'
+        attributes 'Main-Class': 'org.fileorganizergui.Launcher'
     }
     from {
         configurations.runtimeClasspath.collect {
@@ -26,6 +29,5 @@ jar {
 }
 
 application {
-    // Define the main class for the application.
-    mainClass = 'org.fileorganizergui.Main'
+    mainClass = 'org.fileorganizergui.Launcher'
 }

@@ -17,7 +17,6 @@ jar {
 }
 
 application {
-    // Define the main class for the application.
     mainClass = 'org.fileorganizerjava.App'
 }
 
