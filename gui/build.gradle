@@ -1,0 +1,33 @@
+plugins {
+    id "file-organizer-java.java-conventions"
+    id 'org.openjfx.javafxplugin' version '0.1.0'
+}
+
+group = 'org.fileorganizergui'
+version = '1.0.0'
+
+javafx {
+    version = "21"
+    modules = ['javafx.controls', 'javafx.fxml']
+}
+
+dependencies {
+    implementation project(':app')
+}
+
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'org.fileorganizergui.Launcher'
+    }
+    from {
+        configurations.runtimeClasspath.collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    }
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+application {
+    mainClass = 'org.fileorganizergui.Launcher'
+}
