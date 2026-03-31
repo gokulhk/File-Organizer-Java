@@ -2,6 +2,6 @@ package org.fileorganizergui;
 
 public class Launcher {
   public static void main(String[] args) {
-    Main.main(args);
+    Main.run(args);
   }
 }
