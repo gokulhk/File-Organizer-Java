@@ -2,7 +2,7 @@ package org.fileorganizerjava;
 
 public class App {
   public String getGreeting() {
-    return "Hello World!";
+    return "App: Hello World!";
   }
 
   public static void main(String[] args) {
