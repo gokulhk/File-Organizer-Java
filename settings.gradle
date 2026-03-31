@@ -12,4 +12,4 @@ plugins {
 
 rootProject.name = 'File-Organizer-Java'
 
-include 'app', 'gui'
+include 'apps:core', 'apps:gui'
